@@ -3,12 +3,15 @@ import sys
 import random
 
 def main(csv_file_path):
+    print(f"Processing CSV file: {csv_file_path}")  # This line prints the file path
     try:
         with open(csv_file_path, mode='r', encoding='utf-8') as file:
             reader = csv.reader(file)
             next(reader, None)  # Skip the header row
             emails = [row[0] for row in reader]
         
+        print(f"Total emails found: {len(emails)}")  # This line prints the total number of emails
+
         if emails:
             random_email = random.choice(emails)
             print(random_email)
